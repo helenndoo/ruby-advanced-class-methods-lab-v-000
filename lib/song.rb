@@ -37,14 +37,15 @@ end
 def self.new_from_filename(file)
   song = self.new
   song.name = filename.split(/( - |\.)/)[2]
-  song.artist_name = filename.split(/( -|\.)/)[0]
+  song.artist_name = filename.split(/( - |\.)/)[0]
   song
 end
 
 def self.create_from_filename(file)
-  song = self.new_from_filename(file)
+  song = self.new
+  song.name = filename.split(/( - |\.)/)[2]
+  song.artist_name = filename.split(/( - |\.)/)[0]
   self.all << song
-  song
 end
 
 def self.destroy_all
