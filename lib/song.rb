@@ -36,9 +36,8 @@ end
 
 def self.new_from_filename(file)
   song = self.new
-  temp = file.split(" - ")
-  song.name = temp[1].chomp(".mp3")
-  song.artist_name = temp[0]
+  song.name = filename.split(/( - |\.)/)[2]
+  song.artist_name = filename.split(/( -|\.)/)[0]
   song
 end
 
